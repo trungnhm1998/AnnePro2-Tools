@@ -20,7 +20,7 @@ jobs:
         
     steps:
     - name: Install ubuntu deps
-      if: ${{ matrix.os }} == "ubuntu-latest"
+      if: ${{ runner.os == 'ubuntu-latest' }}
       run: sudo apt-get install -y libudev-dev libhidapi-dev libusb-1.0-0-dev
       
     - uses: actions/checkout@v3
@@ -33,12 +33,12 @@ jobs:
         args: --release --all-features --verbose
     - uses: actions/upload-artifact@v3
       with:
-        if: ${{ matrix.os }} == "ubuntu-latest"
+        if: ${{ matrix.os == 'ubuntu-latest' }}
         name: annepro2tools
         path: ./target/release/annepro2_tools
 
     - uses: actions/upload-artifact@v3
       with:
-        if: ${{ matrix.os }} == "windows-latest"
+        if: ${{ runner.os == 'windows-latest' }}
         name: annepro2tools.exe
         path: ./target/release/annepro2_tools_x64.exe
