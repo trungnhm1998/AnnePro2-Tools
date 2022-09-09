@@ -32,7 +32,7 @@ jobs:
         command: build
         args: --release --all-features --verbose
     - uses: actions/upload-artifact@v3
-      if: ${{ matrix.os == 'Linux' }}
+      if: ${{ runner.os == 'Linux' }}
       name: Upload ubuntu builds
       with:
         name: annepro2tools-linux
