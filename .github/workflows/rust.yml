@@ -35,12 +35,12 @@ jobs:
       if: ${{ matrix.os == 'Linux' }}
       name: Upload ubuntu builds
       with:
-        name: annepro2tools
+        name: annepro2tools-linux
         path: ./target/release/annepro2_tools
 
     - uses: actions/upload-artifact@v3
       if: ${{ runner.os == 'Windows' }}
       name: Upload windows build
       with:
-        name: annepro2tools
+        name: annepro2tools-windows
         path: ./target/release/
