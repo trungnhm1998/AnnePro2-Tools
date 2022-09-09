@@ -32,13 +32,15 @@ jobs:
         command: build
         args: --release --all-features --verbose
     - uses: actions/upload-artifact@v3
+      if: ${{ matrix.os == 'Linux' }}
+      name: Upload ubuntu builds
       with:
-        if: ${{ matrix.os == 'Linux' }}
         name: annepro2tools
         path: ./target/release/annepro2_tools
 
     - uses: actions/upload-artifact@v3
+      if: ${{ runner.os == 'Windows' }}
+      name: Upload windows build
       with:
-        if: ${{ runner.os == 'Windows' }}
-        name: annepro2tools.exe
-        path: ./target/release/annepro2_tools_x64.exe
+        name: annepro2tools
+        path: ./target/release/
