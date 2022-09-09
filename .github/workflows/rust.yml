@@ -36,7 +36,7 @@ jobs:
       name: Upload ubuntu builds
       with:
         name: annepro2tools-linux
-        path: ./target/release/annepro2_tools
+        path: ./target/release/
 
     - uses: actions/upload-artifact@v3
       if: ${{ runner.os == 'Windows' }}
